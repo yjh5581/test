@@ -1,0 +1,34 @@
+#encoding=utf-8
+文件第一行要写这个
+
+import sys
+
+#reload(sys)   
+#sys.setdefaultencoding('utf8')  
+这2行不兼容py3，可以不要
+
+print(u"汉字")  程序里所有的汉字字符串常量前面都要加u
+
+import codecs
+打开文件用codes
+f = codecs.open(txt_file,"r","utf8")
+f = codecs.open(txt_file,"w",'utf8')
+
+#引入json库
+import json
+#解决列表中汉字不能正常显示问题
+>>> print([u'哈哈'])
+[u'\u54c8\u54c8']   不能显示汉字
+print json.dumps([u'哈哈'], ensure_ascii = False)
+["哈哈"]
+#解决字典中汉字不能正常显示问题
+print json.dumps({u'键':u'哈哈'}, ensure_ascii = False)
+{"键": "哈哈"}
+
+用pandas读csv文件
+data = pd.read_csv(trainFile,encoding='utf-8')
+
+这些写法兼容py2和py3
+
+
+
