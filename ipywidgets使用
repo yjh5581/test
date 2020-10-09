@@ -1,0 +1,31 @@
+import ipywidgets as widgets
+
+data = [0]
+
+def func(x):
+    print(x)
+    data[0] = x
+    
+text = widgets.Textarea(
+    value='Hello World',
+    description='String:',
+    layout = widgets.Layout(height="150px",width="60%")
+
+)
+
+widgets.interact(func,x=text)
+
+button = widgets.Button(
+    description='Click me',
+    disabled=False,
+    button_style='success', # 'success', 'info', 'warning', 'danger' or ''
+    tooltip='Click me',
+    icon='check'
+)
+display(button)
+
+# 点击执行事件，点击一次，执行一次
+def on_button_clicked(b):
+    print("Button clicked.")
+    print(data[0])
+button.on_click(on_button_clicked)
