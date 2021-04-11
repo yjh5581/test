@@ -1,0 +1,10 @@
+
+pip install virtualenv
+gedit ~/.bashrc
+export PATH=/home/pi/.local/bin/:$PATH
+source ~/.bashrc
+
+virtualenv -p /usr/bin/python3.7 PY37 --system-site-packages
+source PY37/bin/activate
+
+https://www.piwheels.org/simple/tensorflow/tensorflow-1.14.0-cp37-none-linux_armv7l.whl 
